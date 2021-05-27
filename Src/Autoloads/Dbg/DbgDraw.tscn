@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Src/Autoloads/Dbg/DbgDraw.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+vertex_color_use_as_albedo = true
+
+[node name="DbgDraw" type="ImmediateGeometry"]
+material_override = SubResource( 1 )
+script = ExtResource( 1 )

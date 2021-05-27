@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Src/Entities/FpPlayer/FpCamera/FpCamera.gd" type="Script" id=1]
+
+[node name="FpCamera" type="Position3D"]
+script = ExtResource( 1 )
+
+[node name="H" type="Spatial" parent="."]
+
+[node name="V" type="Spatial" parent="H"]
+
+[node name="Camera" type="Camera" parent="H/V"]
+current = true
+fov = 80.0
+far = 1000.0
