@@ -1,24 +1,25 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Src/Autoloads/PauseMenuTemporary/MainMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Autoloads/PauseMenuTemporary/PauseMenuTemporary.gd" type="Script" id=2]
 [ext_resource path="res://Src/Autoloads/PauseMenuTemporary/LevelSelectMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Autoloads/PauseMenuTemporary/SettingsMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Autoloads/PauseMenuTemporary/ThemeTemporary.tres" type="Theme" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
 [ext_resource path="res://Src/Autoloads/PauseMenuTemporary/Blur.gd" type="Script" id=7]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
-uniform float amount: hint_range(0.0, 5.0);
+uniform float amount : hint_range(0.0, 5.0);
 
 void fragment() {
-	COLOR.rgb = textureLod(SCREEN_TEXTURE, SCREEN_UV, amount).rgb;
+	COLOR = textureLod(SCREEN_TEXTURE, SCREEN_UV, amount);
 }"
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/amount = 0.0
+shader_param/amount = 3.417
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 1, 1, 1, 1 )
@@ -33,6 +34,7 @@ material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+texture = ExtResource( 6 )
 expand = true
 script = ExtResource( 7 )
 __meta__ = {
@@ -70,4 +72,5 @@ visible = false
 
 [node name="LevelSelectMenu" parent="PauseMenuTemporary" instance=ExtResource( 3 )]
 visible = false
+
 [connection signal="toggle_pause" from="PauseMenuTemporary/MainMenu" to="." method="_on_MainMenu_toggle_pause"]

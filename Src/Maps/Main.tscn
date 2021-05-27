@@ -6,6 +6,7 @@
 [node name="Spatial" type="Spatial"]
 
 [node name="FpPlayer" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0787491, 4.76837e-07, -0.182429 )
 
 [node name="MapGeometry" type="Spatial" parent="."]
 

@@ -1,7 +1,7 @@
 extends Control
 
 func get_all_nested_children(node: Node):
-	var all_children = []
+	var all_children = [node]
 	for c in node.get_children():
 		all_children.append(c)
 		if c.get_child_count() > 0:

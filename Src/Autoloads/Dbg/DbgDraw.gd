@@ -8,18 +8,18 @@ class Line:
 	var color: Color
 	var width: float
 	
-	func _init(from: Vector3, to: Vector3, color: Color, width: float) -> void:
-		self.from = from
-		self.to = to
-		self.color = color
-		self.width = width
+	func _init(_from: Vector3, _to: Vector3, _color: Color, _width: float) -> void:
+		self.from = _from
+		self.to = _to
+		self.color = _color
+		self.width = _width
 
 #func draw_line_interpolated(from: Vector3, to: Vector3, color: Color = Color(1.0, 0.0, 0.0, 1.0), width: float = 0.025)
 
 func draw_line(from: Vector3, to: Vector3, color: Color = Color(1.0, 0.0, 0.0, 1.0), width: float = 0.025):
 	lines.append(Line.new(from, to, color, width))
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	clear()
 	
 	for line in lines:

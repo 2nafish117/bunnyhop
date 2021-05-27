@@ -51,6 +51,7 @@ config/icon="res://icon.png"
 [autoload]
 
 DbgDraw="*res://Src/Autoloads/Dbg/DbgDraw.tscn"
+PauseMenuTemporary="*res://Src/Autoloads/PauseMenuTemporary/PauseMenuTemporary.tscn"
 
 [display]
 

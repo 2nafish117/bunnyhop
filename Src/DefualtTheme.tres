@@ -1,11 +1,9 @@
 [gd_resource type="Theme" load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Audiowide-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Prototype.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=1]
-size = 64
-outline_size = 2
-outline_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+size = 48
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
