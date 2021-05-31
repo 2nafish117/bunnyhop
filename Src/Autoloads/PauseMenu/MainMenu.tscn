@@ -1,0 +1,260 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Src/Autoloads/PauseMenu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Src/Autoloads/PauseMenu/SliderSpinBoxControl.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Src/Autoloads/PauseMenu/ThemeTemporary.tres" type="Theme" id=3]
+[ext_resource path="res://Assets/Prototype.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="MainMenu" type="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -355.5
+margin_right = 300.0
+margin_bottom = 355.5
+rect_min_size = Vector2( 600, 0 )
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bhop" type="Label" parent="VBoxContainer"]
+margin_right = 600.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 1 )
+custom_constants/shadow_offset_x = 3
+text = "Bhop"
+align = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+margin_top = 54.0
+margin_right = 600.0
+margin_bottom = 58.0
+
+[node name="Resume" type="Button" parent="VBoxContainer"]
+margin_top = 73.0
+margin_right = 600.0
+margin_bottom = 103.0
+text = "Resume"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+margin_top = 118.0
+margin_right = 600.0
+margin_bottom = 148.0
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 163.0
+margin_right = 600.0
+margin_bottom = 167.0
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="VBoxContainer"]
+margin_left = 111.0
+margin_top = 182.0
+margin_right = 489.0
+margin_bottom = 221.0
+size_flags_horizontal = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MovementVariables" type="Label" parent="VBoxContainer/HSplitContainer2"]
+margin_right = 298.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 2 )
+text = "Movement Variables"
+align = 1
+
+[node name="ResetButton" type="Button" parent="VBoxContainer/HSplitContainer2"]
+margin_left = 310.0
+margin_right = 378.0
+margin_bottom = 39.0
+size_flags_horizontal = 2
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer"]
+margin_top = 236.0
+margin_right = 600.0
+margin_bottom = 711.0
+
+[node name="Labels" type="VBoxContainer" parent="VBoxContainer/HSplitContainer"]
+margin_right = 192.0
+margin_bottom = 475.0
+custom_constants/separation = 25
+
+[node name="Label" type="Label" parent="VBoxContainer/HSplitContainer/Labels"]
+margin_right = 192.0
+margin_bottom = 24.0
+text = "horizontal sensitivity"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HSplitContainer/Labels"]
+margin_top = 49.0
+margin_right = 192.0
+margin_bottom = 73.0
+text = "vertical sensitivity"
+
+[node name="Label3" type="Label" parent="VBoxContainer/HSplitContainer/Labels"]
+margin_top = 98.0
+margin_right = 192.0
+margin_bottom = 122.0
+text = "speed ground max"
+
+[node name="Label4" type="Label" parent="VBoxContainer/HSplitContainer/Labels"]
+margin_top = 147.0
+margin_right = 192.0
+margin_bottom = 171.0
+text = "speed air max"
+
+[node name="Label5" type="Label" parent="VBoxContainer/HSplitContainer/Labels"]
+margin_top = 196.0
+margin_right = 192.0
+margin_bottom = 220.0
+text = "accel ground max"
+
+[node name="Label6" type="Label" parent="VBoxContainer/HSplitContainer/Labels"]
+margin_top = 245.0
+margin_right = 192.0
+margin_bottom = 269.0
+text = "accel air max"
+
+[node name="Label7" type="Label" parent="VBoxContainer/HSplitContainer/Labels"]
+margin_top = 294.0
+margin_right = 192.0
+margin_bottom = 318.0
+text = "friction ground"
+
+[node name="Label8" type="Label" parent="VBoxContainer/HSplitContainer/Labels"]
+margin_top = 343.0
+margin_right = 192.0
+margin_bottom = 367.0
+text = "friction air"
+
+[node name="Label9" type="Label" parent="VBoxContainer/HSplitContainer/Labels"]
+margin_top = 392.0
+margin_right = 192.0
+margin_bottom = 416.0
+text = "gravity"
+
+[node name="Label10" type="Label" parent="VBoxContainer/HSplitContainer/Labels"]
+margin_top = 441.0
+margin_right = 192.0
+margin_bottom = 465.0
+text = "speed jump"
+
+[node name="Controls" type="VBoxContainer" parent="VBoxContainer/HSplitContainer"]
+margin_left = 204.0
+margin_right = 600.0
+margin_bottom = 475.0
+custom_constants/separation = 15
+
+[node name="HSensControls" parent="VBoxContainer/HSplitContainer/Controls" instance=ExtResource( 2 )]
+margin_right = 396.0
+margin_bottom = 34.0
+min_value = 0.1
+max_value = 4.0
+step = 0.1
+
+[node name="VSensControls" parent="VBoxContainer/HSplitContainer/Controls" instance=ExtResource( 2 )]
+margin_top = 49.0
+margin_right = 396.0
+margin_bottom = 83.0
+min_value = 0.1
+max_value = 4.0
+step = 0.1
+
+[node name="SpeedGroundMax" parent="VBoxContainer/HSplitContainer/Controls" instance=ExtResource( 2 )]
+margin_top = 98.0
+margin_right = 396.0
+margin_bottom = 132.0
+min_value = 2.0
+max_value = 20.0
+step = 0.1
+
+[node name="SpeedAirMax" parent="VBoxContainer/HSplitContainer/Controls" instance=ExtResource( 2 )]
+margin_top = 147.0
+margin_right = 396.0
+margin_bottom = 181.0
+min_value = 2.0
+max_value = 20.0
+step = 0.1
+
+[node name="AccelGroundMax" parent="VBoxContainer/HSplitContainer/Controls" instance=ExtResource( 2 )]
+margin_top = 196.0
+margin_right = 396.0
+margin_bottom = 230.0
+min_value = 10.0
+max_value = 200.0
+step = 0.1
+
+[node name="AccelAirMax" parent="VBoxContainer/HSplitContainer/Controls" instance=ExtResource( 2 )]
+margin_top = 245.0
+margin_right = 396.0
+margin_bottom = 279.0
+min_value = 2.0
+max_value = 200.0
+step = 0.1
+
+[node name="FrictionGround" parent="VBoxContainer/HSplitContainer/Controls" instance=ExtResource( 2 )]
+margin_top = 294.0
+margin_right = 396.0
+margin_bottom = 328.0
+max_value = 20.0
+step = 0.1
+
+[node name="FrictionAir" parent="VBoxContainer/HSplitContainer/Controls" instance=ExtResource( 2 )]
+margin_top = 343.0
+margin_right = 396.0
+margin_bottom = 377.0
+max_value = 10.0
+step = 0.1
+
+[node name="Gravity" parent="VBoxContainer/HSplitContainer/Controls" instance=ExtResource( 2 )]
+margin_top = 392.0
+margin_right = 396.0
+margin_bottom = 426.0
+min_value = 0.1
+max_value = 30.0
+step = 0.1
+
+[node name="SpeedJump" parent="VBoxContainer/HSplitContainer/Controls" instance=ExtResource( 2 )]
+margin_top = 441.0
+margin_right = 396.0
+margin_bottom = 475.0
+min_value = 1.0
+max_value = 10.0
+step = 0.1
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/HSplitContainer2/ResetButton" to="." method="_on_ResetButton_pressed"]

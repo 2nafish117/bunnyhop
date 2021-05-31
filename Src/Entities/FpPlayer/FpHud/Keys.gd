@@ -9,7 +9,7 @@ onready var s_key := $bottom/S
 onready var d_key := $bottom/D
 onready var space_key := $bottom/Space
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Input.get_action_strength("move_front") > 0:
 		w_key.self_modulate = pressed_color
 	else:

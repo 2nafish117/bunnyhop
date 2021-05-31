@@ -62,12 +62,9 @@ func _physics_process(_delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	# fp_camera interpolation
+	# print_debug(mouse_horizontal_sensitivity)
 	var fraction := Engine.get_physics_interpolation_fraction()
 	global_transform = old_xform.interpolate_with(current_xform, fraction) * initial_camera_xform
-	
-	#var from: Vector3 = global_transform.origin + Vector3.DOWN * 1.1
-	#var to: Vector3 = from + fp_player.interpolated_velocity * 0.15
-	#DbgDraw.draw_line(from, to)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

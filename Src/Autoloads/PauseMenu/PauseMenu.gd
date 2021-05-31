@@ -2,7 +2,7 @@ extends CanvasLayer
 
 onready var game_paused := false
 onready var blur := $Blur
-onready var menus := $PauseMenuTemporary
+onready var menus := $PauseMenu
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

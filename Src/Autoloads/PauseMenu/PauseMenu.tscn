@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Src/Autoloads/PauseMenu/MainMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Src/Autoloads/PauseMenu/PauseMenu.gd" type="Script" id=2]
+[ext_resource path="res://Src/Autoloads/PauseMenu/ThemeTemporary.tres" type="Theme" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://Src/Autoloads/PauseMenu/Blur.gd" type="Script" id=7]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float amount : hint_range(0.0, 5.0);
+
+void fragment() {
+	COLOR = textureLod(SCREEN_TEXTURE, SCREEN_UV, amount);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/amount = 3.417
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 1 )
+
+[node name="PauseMenu" type="CanvasLayer"]
+pause_mode = 2
+layer = 9
+script = ExtResource( 2 )
+
+[node name="Blur" type="TextureRect" parent="."]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Blur"]
+
+[node name="Tween2" type="Tween" parent="Blur"]
+
+[node name="PauseMenu" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="PauseMenu"]
+self_modulate = Color( 0.243137, 0.243137, 0.243137, 0.843137 )
+margin_left = 240.0
+margin_right = 1040.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 800, 720 )
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" parent="PauseMenu" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
+
+[connection signal="toggle_pause" from="PauseMenu/MainMenu" to="." method="_on_MainMenu_toggle_pause"]

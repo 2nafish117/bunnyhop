@@ -24,11 +24,13 @@ export(float, 0.0, 90.0) var floor_angle := 40.0
 export(float) var snap_to_floor: float = 0.1
 var snap_to_floor_modifier: float = 1.0
 
-
 var time: float = 0.0
 
 var move_direction: Vector3
 var velocity: Vector3
+# needed for ui
+var projection: float
+var velocity_move_direction_angle: float
 
 var contact_normals: Array
 var contact_points: Array
@@ -43,8 +45,9 @@ func get_vspeed() -> float:
 	return velocity.project(Vector3.UP).length()
 
 func accelerate(var _velocity: Vector3, speed_max: float, accel_max: float, delta: float) -> Vector3:
-	var projection := speed_max - _velocity.dot(move_direction)
-	var add_speed: float = clamp(projection, 0.0, accel_max * delta)
+	projection = _velocity.dot(move_direction)
+	velocity_move_direction_angle = _velocity.angle_to(move_direction)
+	var add_speed := clamp(speed_max - projection, 0.0, accel_max * delta)
 	_velocity += add_speed * move_direction
 	return _velocity
 

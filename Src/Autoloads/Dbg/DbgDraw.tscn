@@ -3,6 +3,7 @@
 [ext_resource path="res://Src/Autoloads/Dbg/DbgDraw.gd" type="Script" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
 vertex_color_use_as_albedo = true
 
 [node name="DbgDraw" type="ImmediateGeometry"]

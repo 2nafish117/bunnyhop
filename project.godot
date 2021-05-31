@@ -51,12 +51,13 @@ config/icon="res://icon.png"
 [autoload]
 
 DbgDraw="*res://Src/Autoloads/Dbg/DbgDraw.tscn"
-PauseMenuTemporary="*res://Src/Autoloads/PauseMenuTemporary/PauseMenuTemporary.tscn"
+PauseMenuTemporary="*res://Src/Autoloads/PauseMenu/PauseMenu.tscn"
+PlayerMovementSettings="*res://Src/Autoloads/PlayerMovementSettings.gd"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/width=1280
+window/size/height=720
 
 [editor_plugins]
 
