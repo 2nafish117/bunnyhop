@@ -24,16 +24,21 @@ export(float, 0.0, 90.0) var floor_angle := 40.0
 export(float) var snap_to_floor: float = 0.1
 var snap_to_floor_modifier: float = 1.0
 
+export(float) var step_distance: float = 3.0
+
 var time: float = 0.0
 
 var move_direction: Vector3
 var velocity: Vector3
+
 # needed for ui
 var projection: float
 var velocity_move_direction_angle: float
 
 var contact_normals: Array
 var contact_points: Array
+
+var top_speed: float = 0.0
 
 func get_speed() -> float:
 	return velocity.length()
@@ -44,7 +49,7 @@ func get_hspeed() -> float:
 func get_vspeed() -> float:
 	return velocity.project(Vector3.UP).length()
 
-func accelerate(var _velocity: Vector3, speed_max: float, accel_max: float, delta: float) -> Vector3:
+func accelerate(_velocity: Vector3, speed_max: float, accel_max: float, delta: float) -> Vector3:
 	projection = _velocity.dot(move_direction)
 	velocity_move_direction_angle = _velocity.angle_to(move_direction)
 	var add_speed := clamp(speed_max - projection, 0.0, accel_max * delta)
@@ -108,6 +113,10 @@ func update_movement(player: FpPlayer, delta: float) -> void:
 		movement_floor(player, delta)
 	else:
 		movement_air(player, delta)
+	
+	var speed: float = velocity.length()
+	if speed > top_speed:
+		top_speed = speed
 	
 	contact_normals = []
 	contact_points = []

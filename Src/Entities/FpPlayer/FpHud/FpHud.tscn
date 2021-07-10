@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Assets/crosshair_8.png" type="Texture" id=1]
-[ext_resource path="res://Assets/white.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/crosshair_8.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/white.png" type="Texture" id=2]
 [ext_resource path="res://Src/Entities/FpPlayer/FpHud/Keys.gd" type="Script" id=3]
 [ext_resource path="res://Src/Entities/FpPlayer/FpHud/MousePassHud.gd" type="Script" id=4]
 [ext_resource path="res://Src/DefualtTheme.tres" type="Theme" id=5]
@@ -47,6 +47,21 @@ margin_top = 356.0
 margin_right = 644.0
 margin_bottom = 364.0
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopSpeed" type="Label" parent="MousePassHud"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -72.5
+margin_right = 72.5
+margin_bottom = 57.0
+size_flags_vertical = 1
+theme = ExtResource( 5 )
+text = "50.0"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

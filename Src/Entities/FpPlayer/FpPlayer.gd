@@ -43,7 +43,7 @@ func draw_movement_arrows() -> void:
 	from += Vector3.UP * 0.1
 	var interpolated_move_direction = move_direction_prev.linear_interpolate(move_direction_now, Engine.get_physics_interpolation_fraction())
 	DbgDraw.draw_arrow(from, from + interpolated_move_direction * 0.5, Color(0.0, 1.0, 0.0, 0.5))
-	
+
 func _process(_delta: float) -> void:
 	draw_movement_arrows()
 
@@ -54,9 +54,12 @@ func _physics_process(delta: float) -> void:
 	
 	velocity_prev = velocity_now
 	velocity_now = fp_movement.velocity
+		
 	$FpHud.set_speed(velocity_now.length())
+	$FpHud.set_top_speed(fp_movement.top_speed)
 	$FpHud.set_projection(fp_movement.projection)
 	$FpHud.set_angle(rad2deg(fp_movement.velocity_move_direction_angle))
 	
 	move_direction_prev = move_direction_now
 	move_direction_now = fp_movement.move_direction
+	
