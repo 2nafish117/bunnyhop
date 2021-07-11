@@ -50,6 +50,8 @@ func get_vspeed() -> float:
 	return velocity.project(Vector3.UP).length()
 
 func accelerate(_velocity: Vector3, speed_max: float, accel_max: float, delta: float) -> Vector3:
+	#print(move_direction.length())
+	#print(_velocity.length())
 	projection = _velocity.dot(move_direction)
 	velocity_move_direction_angle = _velocity.angle_to(move_direction)
 	var add_speed := clamp(speed_max - projection, 0.0, accel_max * delta)
@@ -61,6 +63,7 @@ func friction(_velocity: Vector3, friction: float, _speed_stop: float, delta: fl
 	if speed != 0.0:
 		var control := max(_speed_stop, speed)
 		var drop := control * friction * delta
+		#print(drop)
 		_velocity *= max(speed - drop, 0.0) / speed
 	return _velocity
 
@@ -103,6 +106,7 @@ func movement_air(player: FpPlayer, delta: float) -> void:
 	velocity = player.move_and_slide(velocity, Vector3.UP, true, 4, deg2rad(floor_angle), false)
 
 func update_movement(player: FpPlayer, delta: float) -> void:
+	#print(velocity.length())
 	time += delta
 	var fp_cam_hbasis: Basis = player.fp_camera.get_hbasis()
 	var fp_input: FpInput = player.fp_input
@@ -118,6 +122,7 @@ func update_movement(player: FpPlayer, delta: float) -> void:
 	if speed > top_speed:
 		top_speed = speed
 	
+	#print(velocity.length())
 	contact_normals = []
 	contact_points = []
 	for idx in player.get_slide_count():

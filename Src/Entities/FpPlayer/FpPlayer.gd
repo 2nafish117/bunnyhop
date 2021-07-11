@@ -38,11 +38,11 @@ func draw_movement_arrows() -> void:
 	var interpolated_velocity = velocity_prev.linear_interpolate(velocity_now, Engine.get_physics_interpolation_fraction())
 	var from: Vector3 = fp_camera.get_interpolated_global_transform().origin + Vector3.DOWN * 1.0
 	var to: Vector3 = from + interpolated_velocity * 0.10
-	DbgDraw.draw_arrow(from, to, Color(1.0, 0.0, 0.0, 0.5))
+	DbgDraw.draw_arrow(from, to, Color(1.0, 0.0, 0.0, 0.7))
 	
 	from += Vector3.UP * 0.1
 	var interpolated_move_direction = move_direction_prev.linear_interpolate(move_direction_now, Engine.get_physics_interpolation_fraction())
-	DbgDraw.draw_arrow(from, from + interpolated_move_direction * 0.5, Color(0.0, 1.0, 0.0, 0.5))
+	DbgDraw.draw_arrow(from, from + interpolated_move_direction * 0.5, Color(0.0, 1.0, 0.0, 0.7))
 
 func _process(_delta: float) -> void:
 	draw_movement_arrows()
